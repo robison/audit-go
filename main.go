@@ -1,7 +1,7 @@
 package main
 
 import (
-	"audit-go/netlinkAudit"
+	"github.com/robison/audit-go/netlinkAudit"
 	"log"
 	"os"
 	"syscall"
