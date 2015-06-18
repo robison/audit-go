@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./netlinkAudit"
+	"audit-go/netlinkAudit"
 	"log"
 	"os"
 	"syscall"
