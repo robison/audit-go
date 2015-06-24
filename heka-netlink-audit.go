@@ -19,12 +19,6 @@ import (
 var done chan bool
 var debug bool
 
-type NetlinkAuditInput struct {
-	conf     *NetlinkAuditInputConfig
-	stopChan chan bool
-	ir       InputRunner
-	pConfig  *pipeline.PipelineConfig
-}
 
 // NetlinkAuditInput config struct
 type NetlinkAuditInputConfig struct {
@@ -34,6 +28,14 @@ type NetlinkAuditInputConfig struct {
 	// Defaults to true.
 	EmitInPayload bool `toml:"emit_in_payload"`
 	DecoderName string `toml:"decoder"`
+}
+
+type NetlinkAuditInput struct {
+	conf        *NetlinkAuditInputConfig
+	stopChan    chan bool
+	decoderChan chan *pipeline.PipelinePack
+	ir          pipeline.InputRunner
+	pConfig     *pipeline.PipelineConfig
 }
 
 /*
