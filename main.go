@@ -1,4 +1,4 @@
-package main
+package audit-go
 
 import (
 	"github.com/robison/audit-go/netlinkAudit"
