@@ -72,8 +72,8 @@ func (nla *NetlinkAuditInput) SetPipelineConfig(pConfig *pipeline.PipelineConfig
 func (nla *NetlinkAuditInput) Init(config interface{}) (err error) {
 	nla.stopChan = make(chan bool, 1)
 	nla.conf = config.(*NetlinkAuditInputConfig)
-	if conf.DecoderName != "" {
-		decoder, ok = input.pConfig.Decoder(conf.DecoderName)
+	if nla.conf.DecoderName != "" {
+		decoder, ok = input.pConfig.Decoder(nla.conf.DecoderName)
 	}
 	if ok && decoder != nil {
 		// We want to know what kind of decoder is being used, but we only
