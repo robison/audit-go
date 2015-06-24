@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/mozilla-services/heka/message"
-	. "github.com/mozilla-services/heka/pipeline"
+	"github.com/mozilla-services/heka/pipeline"
 	"github.com/robison/audit-go/netlinkAudit"
 	"io/ioutil"
 	"net"
