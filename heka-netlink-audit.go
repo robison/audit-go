@@ -75,6 +75,11 @@ func (nla *NetlinkAuditInput) Init(config interface{}) (err error) {
 	if nla.conf.DecoderName != "" {
 		decoder, ok = input.pConfig.Decoder(nla.conf.DecoderName)
 	}
+	var (
+		useMsgBytes bool
+		ok          bool
+		decoder     pipeline.Decoder
+	)
 	if ok && decoder != nil {
 		// We want to know what kind of decoder is being used, but we only
 		// care if they're using a protobuf decoder, or a multidecoder with
