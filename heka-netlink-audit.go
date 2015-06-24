@@ -72,8 +72,13 @@ func (nla *NetlinkAuditInput) SetPipelineConfig(pConfig *pipeline.PipelineConfig
 func (nla *NetlinkAuditInput) Init(config interface{}) (err error) {
 	nla.stopChan = make(chan bool, 1)
 	nla.conf = config.(*NetlinkAuditInputConfig)
+	var (
+		useMsgBytes bool
+		ok          bool
+		decoder     pipeline.Decoder
+	)
 	if nla.conf.DecoderName != "" {
-		decoder, ok = input.pConfig.Decoder(nla.conf.DecoderName)
+		decoder, ok = nla.pConfig.Decoder(nla.conf.DecoderName)
 	}
 	var (
 		useMsgBytes bool
