@@ -2,17 +2,10 @@ package netlinkaudit
 
 import (
   "code.google.com/p/go-uuid/uuid"
-	"encoding/json"
 	"fmt"
 	"github.com/mozilla-services/heka/message"
 	"github.com/mozilla-services/heka/pipeline"
 	"github.com/robison/audit-go/netlinkAudit"
-	"io/ioutil"
-	"net"
-	"net/http"
-	"log"
-	"os"
-	"syscall"
 	"time"
 )
 
@@ -80,11 +73,6 @@ func (nla *NetlinkAuditInput) Init(config interface{}) (err error) {
 	if nla.conf.DecoderName != "" {
 		decoder, ok = nla.pConfig.Decoder(nla.conf.DecoderName)
 	}
-	var (
-		useMsgBytes bool
-		ok          bool
-		decoder     pipeline.Decoder
-	)
 	if ok && decoder != nil {
 		// We want to know what kind of decoder is being used, but we only
 		// care if they're using a protobuf decoder, or a multidecoder with
