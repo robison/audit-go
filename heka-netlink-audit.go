@@ -23,7 +23,7 @@ type NetlinkAuditInput struct {
 	conf     *NetlinkAuditInputConfig
 	stopChan chan bool
 	ir       InputRunner
-	pConfig  *PipelineConfig
+	pConfig  *pipeline.PipelineConfig
 }
 
 // NetlinkAuditInput config struct
